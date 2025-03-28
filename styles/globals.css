@@ -1,0 +1,502 @@
+/* Room.module.css */
+.roomContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.roomName {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.roomImage {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  margin-bottom: 2rem;
+  border: 2px solid #333;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.navigationControls {
+  display: grid;
+  grid-template-areas:
+    ". north ."
+    "west . east"
+    ". south ."
+    "up . down";
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.navButton {
+  padding: 0.75rem 1rem;
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.navButton:hover:not(:disabled) {
+  background-color: #34495e;
+}
+
+.navButton:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.navNorth {
+  grid-area: north;
+}
+
+.navSouth {
+  grid-area: south;
+}
+
+.navEast {
+  grid-area: east;
+}
+
+.navWest {
+  grid-area: west;
+}
+
+.navUp {
+  grid-area: up;
+}
+
+.navDown {
+  grid-area: down;
+}
+
+.object {
+  position: absolute;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.object:hover {
+  transform: scale(1.1);
+}
+
+.objectHint {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.object:hover .objectHint {
+  opacity: 1;
+}
+
+/* Inventory.module.css */
+.inventoryButton {
+  padding: 0.75rem 1.5rem;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.inventoryButton:hover {
+  background-color: #2980b9;
+}
+
+.inventoryModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.inventoryContainer {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 800px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.inventoryTitle {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.inventoryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  grid-gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.inventoryItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.inventoryItem:hover, .inventoryItem.selected {
+  border-color: #3498db;
+}
+
+.itemName {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.itemPlaceholder {
+  width: 50px;
+  height: 50px;
+  background-color: #ecf0f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #7f8c8d;
+  border-radius: 4px;
+}
+
+.itemDetails {
+  border-top: 1px solid #ddd;
+  padding-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.useItemButton {
+  padding: 0.5rem 1rem;
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.useItemButton:hover {
+  background-color: #27ae60;
+}
+
+.closeButton {
+  padding: 0.75rem 1.5rem;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+}
+
+.closeButton:hover {
+  background-color: #c0392b;
+}
+
+.emptyInventory {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #7f8c8d;
+  padding: 2rem;
+}
+
+/* Game.module.css */
+.gameContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 1rem;
+  background-color: #f5f5f5;
+}
+
+.gameHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.gameHeader h1 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.gameControls {
+  display: flex;
+  gap: 1rem;
+}
+
+.newGameButton {
+  padding: 0.75rem 1.5rem;
+  background-color: #9b59b6;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.newGameButton:hover {
+  background-color: #8e44ad;
+}
+
+.error {
+  max-width: 600px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.error h2 {
+  color: #e74c3c;
+  margin-top: 0;
+}
+
+.error button {
+  padding: 0.75rem 1.5rem;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 1.5rem;
+}
+
+.winScreen {
+  max-width: 600px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.winScreen h2 {
+  color: #2ecc71;
+  margin-top: 0;
+}
+
+.winScreen button {
+  padding: 0.75rem 1.5rem;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 1.5rem 0.5rem 0;
+}
+
+/* Home.module.css */
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(to bottom, #2c3e50, #34495e);
+  color: white;
+}
+
+.titleContainer {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: #ecf0f1;
+}
+
+.menuContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 300px;
+}
+
+.menuButton {
+  padding: 1rem;
+  font-size: 1.1rem;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.2s;
+}
+
+.menuButton:hover {
+  background-color: #c0392b;
+}
+
+.menuLink {
+  padding: 1rem;
+  font-size: 1.1rem;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  display: block;
+}
+
+.menuLink:hover {
+  background-color: #2980b9;
+}
+
+.footer {
+  margin-top: 4rem;
+  font-size: 0.9rem;
+  color: #bdc3c7;
+}
+
+/* Instructions.module.css */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #2c3e50;
+}
+
+.instructionsContent {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.section {
+  margin-bottom: 2rem;
+}
+
+.section h2 {
+  color: #3498db;
+  margin-top: 0;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.controlsList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.controlItem {
+  display: flex;
+  background-color: #f8f9fa;
+  padding: 0.75rem;
+  border-radius: 4px;
+}
+
+.controlKey {
+  font-weight: bold;
+  width: 120px;
+  padding-right: 1rem;
+}
+
+.buttonContainer {
+  text-align: center;
+}
+
+.backButton {
+  padding: 0.75rem 1.5rem;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.backButton:hover {
+  background-color: #2980b9;
+}
+
+/* globals.css */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
