@@ -1,0 +1,84 @@
+{
+  "rooms": {
+    "room1": {
+      "name": "Ancient Hallway",
+      "image": "/rooms/room1.png",
+      "exits": {
+        "north": "room2",
+        "east": "room3"
+      },
+      "objects": ["key", "torch"]
+    },
+    "room2": {
+      "name": "Dark Chamber",
+      "image": "/rooms/room2.png",
+      "exits": {
+        "south": "room1",
+        "up": "room4"
+      },
+      "objects": []
+    },
+    "room3": {
+      "name": "Dusty Library",
+      "image": "/rooms/room3.png",
+      "exits": {
+        "west": "room1",
+        "down": "room5"
+      },
+      "objects": ["book", "candle"]
+    },
+    "room4": {
+      "name": "Tower Overlook",
+      "image": "/rooms/room4.png",
+      "exits": {
+        "down": "room2"
+      },
+      "objects": ["telescope"]
+    },
+    "room5": {
+      "name": "Hidden Vault",
+      "image": "/rooms/room5.png",
+      "exits": {
+        "up": "room3"
+      },
+      "objects": ["treasure"]
+    }
+  },
+  "starting_room": "room1",
+  "objects": {
+    "key": {
+      "name": "Rusty Key",
+      "description": "An old rusty key that might unlock something",
+      "image": "/objects/key.png"
+    },
+    "torch": {
+      "name": "Torch",
+      "description": "A lit torch to illuminate dark places",
+      "image": "/objects/torch.png"
+    },
+    "book": {
+      "name": "Ancient Tome",
+      "description": "A mysterious book with strange symbols",
+      "image": "/objects/book.png"
+    },
+    "candle": {
+      "name": "Wax Candle",
+      "description": "A partially melted candle",
+      "image": "/objects/candle.png" 
+    },
+    "telescope": {
+      "name": "Brass Telescope",
+      "description": "A collapsible telescope made of tarnished brass",
+      "image": "/objects/telescope.png"
+    },
+    "treasure": {
+      "name": "Golden Chalice",
+      "description": "A valuable golden chalice encrusted with jewels",
+      "image": "/objects/treasure.png"
+    }
+  },
+  "win_condition": {
+    "type": "item_collection",
+    "required_items": ["treasure"]
+  }
+}
