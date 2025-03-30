@@ -1,0 +1,313 @@
+
+Game Design Document (GDD) Game Title: Dungeon Mapper Web Genre: Dungeon Crawler / Exploration Platform: Web Browser (Desktop & Mobile) Framework: Next.js Code Hosting: GitHub Deployment: Vercel 1. Game Overview 1.1 Core Concept Dungeon Mapper Web is a 2D web-based dungeon exploration game where the
+
+pasted
+
+write the code for this game
+
+I'll create the code for the Dungeon Mapper Web game based on the design document. Let's start by building the core components and structure of the game.
+
+
+map.json
+Code 
+Now, let's create the main components of the game:
+
+
+Room.js
+Code 
+
+Inventory.js
+Code 
+
+MapLoader.js
+Code 
+
+stateManager.js
+Code 
+
+game.js
+Code 
+
+index.js
+Code 
+
+instructions.js
+Code 
+
+CSS Styles
+Code 
+
+continue
+
+Let me continue creating the CSS styles for the game:
+
+
+CSS Styles
+Code ∙ Version 2 
+
+CSS Styles
+Code ∙ Version 3 
+
+_app.js
+Code 
+
+save.js (API Route)
+Code 
+
+package.json
+Code 
+
+README.md
+Document 
+Now that I've created all the necessary files for the Dungeon Mapper Web game, let me explain how to set up and run it:
+
+Project Overview
+The Dungeon Mapper Web game is a Next.js application that allows players to explore interconnected rooms, collect items, and navigate through a dungeon. Here's a summary of what I've created:
+
+Core Components:
+Room.js: Renders the current room with navigation controls
+Inventory.js: Manages player's collected items
+MapLoader.js: Loads the dungeon map from JSON
+Game Logic:
+stateManager.js: Handles game state, item collection, and win conditions
+game.js: Main game page with game loop and state management
+UI/UX:
+Responsive navigation controls for desktop and mobile
+Inventory system with item details
+Clean, modern UI with hover effects and transitions
+Data Structure:
+map.json: Defines all rooms, connections, and objects
+How to Run the Game
+Setup the project:
+bash
+mkdir dungeon-mapper-web
+cd dungeon-mapper-web
+npm init -y
+npm install next react react-dom
+Create the directory structure as outlined in the files I've provided.
+Copy all the files into their respective locations as shown in the artifacts.
+Create placeholder images:
+Create /public/rooms/ directory with placeholder PNG files for each room (room1.png, room2.png, etc.)
+Create /public/objects/ directory with placeholder PNG files for objects (key.png, torch.png, etc.)
+Start the development server:
+bash
+npm run dev
+Access the game at http://localhost:3000
+Customization Options
+You can easily customize the game by:
+
+Adding new rooms: Create new room PNG files and add them to the map.json configuration.
+Creating new objects: Add object definitions to the map.json file and create corresponding images.
+Changing win conditions: Modify the win conditions in stateManager.js to create different game objectives.
+Styling: Update the CSS files to change the look and feel of the game.
+Next Steps
+To expand the game, you could consider:
+
+Adding puzzles that require specific items to solve
+Implementing save/load functionality to a database using the API route
+Adding sounds and music for room transitions and item collection
+Creating an editor to visually create and connect rooms
+The code is built with scalability in mind, so it should be straightforward to extend with additional features as needed.
+
+
+where should the image files be stored
+
+The image files for the Dungeon Mapper Web game should be stored in the following directories:
+
+Room Images
+All room images should be stored in:
+
+/public/rooms/
+For example:
+
+/public/rooms/room1.png
+/public/rooms/room2.png
+/public/rooms/room3.png
+/public/rooms/room4.png
+/public/rooms/room5.png
+Object Images
+All object/item images should be stored in:
+
+/public/rooms/objects/
+For example:
+
+/public/objects/key.png
+/public/objects/torch.png
+/public/objects/book.png
+/public/objects/candle.png
+/public/objects/telescope.png
+/public/objects/treasure.png
+Additional Notes:
+The /public directory in Next.js is special - files in this directory are served at the root path of your application.
+In the code, the image paths are referenced as they appear in the map.json file:
+json
+"image": "/rooms/room1.png"
+and
+
+json
+"image": "/objects/key.png"
+For best results, I recommend using the following image specifications:
+Room images: 800×600 pixels (or at least 16:9 ratio)
+Object images: 64×64 pixels (square format)
+File format: PNG with transparency where needed
+The public directory also needs to be created if it doesn't exist already, as it's the root for all static assets in a Next.js application.
+how do I run this game in vercel
+
+To deploy your Dungeon Mapper Web game on Vercel, follow these steps:
+
+Step 1: Prepare Your Project for Deployment
+First, make sure your project is ready for deployment:
+
+Ensure all your code files are working correctly locally
+Create a GitHub repository for your project (if you haven't already)
+Push your code to GitHub:
+bash
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/yourusername/dungeon-mapper-web.git
+git push -u origin main
+Step 2: Deploy to Vercel
+Option 1: Deploy via Vercel Dashboard (Recommended for beginners)
+Create a Vercel Account:
+Go to vercel.com and sign up (you can sign up with your GitHub account)
+Import Your Repository:
+Click "Add New..." → "Project"
+Connect your GitHub account if prompted
+Select the repository you created for your game
+Configure the Project:
+Vercel will automatically detect that it's a Next.js project
+Keep the default settings (Framework Preset: Next.js)
+You can configure environment variables if needed (not required for this game)
+Deploy:
+Click "Deploy"
+Vercel will build and deploy your application
+Option 2: Deploy via Vercel CLI
+Install Vercel CLI:
+bash
+npm install -g vercel
+Log in to Vercel:
+bash
+vercel login
+Deploy from your project directory:
+bash
+cd dungeon-mapper-web
+vercel
+Follow the CLI prompts:
+Confirm you want to deploy
+Link to an existing project or create a new one
+Confirm the settings
+Step 3: Set Up Automatic Deployments
+Vercel automatically sets up continuous deployment from your GitHub repository. This means:
+
+Every push to your main branch will trigger a new deployment
+Pull requests will generate preview deployments
+Step 4: Access Your Deployed Game
+After deployment completes:
+
+You'll receive a URL where your game is hosted (e.g., dungeon-mapper-web.vercel.app)
+You can also configure a custom domain in the Vercel dashboard
+Additional Tips for Vercel Deployment
+Optimize Images:
+Consider using Next.js Image Optimization to improve load times
+Ensure your room and object images aren't unnecessarily large
+Map JSON File Location:
+If you're having issues with loading the map.json file, ensure it's properly located in /public/data/map.json
+Update the fetch path in MapLoader.js if needed
+Environment Variables:
+If you extend the game to use a database or external services, use Vercel's environment variables
+Performance Monitoring:
+Vercel provides analytics and performance monitoring for your deployment
+Your game should now be accessible online through the Vercel-provided URL, and any updates you push to your GitHub repository will automatically be deployed.
+
+
+
+
+
+
+
+{
+  "rooms": {
+    "room1": {
+      "name": "Ancient Hallway",
+      "image": "/rooms/room1.png",
+      "exits": {
+        "north": "room2",
+        "east": "room3"
+      },
+      "objects": ["key", "torch"]
+    },
+    "room2": {
+      "name": "Dark Chamber",
+      "image": "/rooms/room2.png",
+      "exits": {
+        "south": "room1",
+        "up": "room4"
+      },
+      "objects": []
+    },
+    "room3": {
+      "name": "Dusty Library",
+      "image": "/rooms/room3.png",
+      "exits": {
+        "west": "room1",
+        "down": "room5"
+      },
+      "objects": ["book", "candle"]
+    },
+    "room4": {
+      "name": "Tower Overlook",
+      "image": "/rooms/room4.png",
+      "exits": {
+        "down": "room2"
+      },
+      "objects": ["telescope"]
+    },
+    "room5": {
+      "name": "Hidden Vault",
+      "image": "/rooms/room5.png",
+      "exits": {
+        "up": "room3"
+      },
+      "objects": ["treasure"]
+    }
+  },
+  "starting_room": "room1",
+  "objects": {
+    "key": {
+      "name": "Rusty Key",
+      "description": "An old rusty key that might unlock something",
+      "image": "/objects/key.png"
+    },
+    "torch": {
+      "name": "Torch",
+      "description": "A lit torch to illuminate dark places",
+      "image": "/objects/torch.png"
+    },
+    "book": {
+      "name": "Ancient Tome",
+      "description": "A mysterious book with strange symbols",
+      "image": "/objects/book.png"
+    },
+    "candle": {
+      "name": "Wax Candle",
+      "description": "A partially melted candle",
+      "image": "/objects/candle.png" 
+    },
+    "telescope": {
+      "name": "Brass Telescope",
+      "description": "A collapsible telescope made of tarnished brass",
+      "image": "/objects/telescope.png"
+    },
+    "treasure": {
+      "name": "Golden Chalice",
+      "description": "A valuable golden chalice encrusted with jewels",
+      "image": "/objects/treasure.png"
+    }
+  },
+  "win_condition": {
+    "type": "item_collection",
+    "required_items": ["treasure"]
+  }
+}
